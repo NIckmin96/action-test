@@ -14,12 +14,11 @@ jobs:
           python-version: "3.10"
       - name: Install dependencies
         run: # install dependencies using requirements.txt if exists
-          |
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip &&
           pip install numpy pandas scikit-learn joblib
-          if [-f requirement.txt]; then
-            pip install -r requirements.txt
-          fi
+          # if [-f requirement.txt]; then
+          #   pip install -r requirements.txt
+          # fi
       - name: Load-Iris
         run: |
           python main.py
