@@ -12,9 +12,10 @@ jobs:
         uses: actions/setup-python@v4 # set up python in runner
         with:
           python-version: "3.10"
-      - name: Install dependencies
+      - name: Install dependencies-1
         run: # install dependencies using requirements.txt if exists
           python -m pip install --upgrade pip
+      - name: Install dependencies-2
         run: # install dependencies using requirements.txt if exists
           pip install numpy pandas scikit-learn joblib
       - name: Load-Iris
