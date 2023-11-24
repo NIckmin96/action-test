@@ -1,0 +1,13 @@
+name: iris-workflow # [Optional] 생략하면 파일 이름으로 대체됨
+run-name: ${{ github.actor }} is learning Github Actions # [Optional] run의 이름. 생략되면 설정된 event와 관련된 이름으로 자동생성됨
+on: [push] # event(trigger) 설정
+jobs:
+  check-bats-version: # job name
+    runs-on: ubuntu-latest # runner 환경
+    steps:
+      - uses: actions/checkout@v4 # step1(action)
+      - uses: actions/setup-node@v3 # step2(action)
+        with:
+          node-version: '14' # node.js version
+      - run: npm install -g bats # runner에서 실행될 command
+      - run: bats -v # runner에서 실행될 command

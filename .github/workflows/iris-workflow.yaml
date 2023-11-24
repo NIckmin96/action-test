@@ -1,0 +1,23 @@
+name: iris-workflow
+run-name: test for github actions pipeline build
+on:
+  workflow_dispatch: # manual trigger
+    
+jobs:
+  load-iris:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # checkout to working repository(default=current repository / Other Repository or Branch can be selected using parameters)
+      - name: Set up Python 3.10
+        uses: actions/setup-python@3 # set up python in runner
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: # install dependencies using requirements.txt if exists
+          |
+          python -m pip install --upgrade pip
+          pip install numpy pandas sklean joblib
+          if [-f requirement.txt]; then pip install -r requirements.txt; 
+      - name: Load-Iris
+        run: |
+          python main.py
