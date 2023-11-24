@@ -16,7 +16,7 @@ jobs:
         run: # install dependencies using requirements.txt if exists
           |
           python -m pip install --upgrade pip
-          pip install numpy pandas sklean joblib
+          pip install numpy pandas scikit-learn joblib
           if [-f requirement.txt]; then pip install -r requirements.txt; 
       - name: Load-Iris
         run: |
