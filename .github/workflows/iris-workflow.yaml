@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4 # checkout to working repository(default=current repository / Other Repository or Branch can be selected using parameters)
       - name: Set up Python 3.10
-        uses: actions/setup-python@3 # set up python in runner
+        uses: actions/setup-python@4 # set up python in runner
         with:
           python-version: "3.10"
       - name: Install dependencies
